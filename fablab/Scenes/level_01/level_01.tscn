@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmp74aoq5k6do"]
+
+[ext_resource type="Script" path="res://Scenes/level_01/level_01.gd" id="1_qmdma"]
+[ext_resource type="PackedScene" uid="uid://b205vxyasxbjv" path="res://Scenes/player/player.tscn" id="2_j4jdt"]
+[ext_resource type="Texture2D" uid="uid://cs2685mjnx3wh" path="res://Scenes/level_01/test01.png" id="4_drh5f"]
+[ext_resource type="PackedScene" uid="uid://bwy54hof7fheu" path="res://Scenes/fire/fire.tscn" id="4_xpc8x"]
+[ext_resource type="PackedScene" uid="uid://dmyxxggre5anc" path="res://Scenes/3dprinter/3dprinter.tscn" id="5_r26ls"]
+
+[node name="level01" type="Node2D"]
+script = ExtResource("1_qmdma")
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(324, 324)
+scale = Vector2(0.632813, 0.632813)
+texture = ExtResource("4_drh5f")
+
+[node name="bordure" type="StaticBody2D" parent="background"]
+position = Vector2(-512, -512)
+scale = Vector2(1.58025, 1.58025)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/bordure"]
+polygon = PackedVector2Array(-56, -80, -56, 696, 728, 696, 736, -104, -56, -80, 88, 72, 528, 72, 528, 184, 504, 208, 504, 264, 520, 312, 576, 312, 586.571, 333.142, 616, 328, 624, 360, 616, 392, 648, 456, 648, 520, 432, 520, 448, 640, 80, 640, 120, 536, 128, 464, 8, 464, 40, 352, 64, 352, 64, 296, 96, 216, 64, 216, 88, 176, 88, 72)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_j4jdt")]
+position = Vector2(328, 360)
+
+[node name="fire" parent="." instance=ExtResource("4_xpc8x")]
+position = Vector2(600, 408)
+
+[node name="3dprinter" parent="." instance=ExtResource("5_r26ls")]
+position = Vector2(587, 224)
+
+[node name="score" type="TextEdit" parent="."]
+offset_left = 471.0
+offset_top = 597.0
+offset_right = 632.0
+offset_bottom = 637.0
+
+[node name="printer" type="TextEdit" parent="."]
+offset_left = 408.0
+offset_top = 14.0
+offset_right = 643.0
+offset_bottom = 54.0
+
+[connection signal="blark" from="CharacterBody2D" to="." method="_on_character_body_2d_blark"]
+[connection signal="blark" from="CharacterBody2D" to="score" method="_on_character_body_2d_blark"]
+[connection signal="printer" from="CharacterBody2D" to="." method="_on_character_body_2d_printer"]
