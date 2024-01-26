@@ -194,8 +194,7 @@ one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5xjfp")
-animation = &"idle_up"
-frame_progress = 0.0562153
+animation = &"idle_down"
 
 [node name="playerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0.25, 0)
