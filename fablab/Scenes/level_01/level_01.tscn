@@ -22,7 +22,7 @@ scale = Vector2(1.58025, 1.58025)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/bordure"]
 polygon = PackedVector2Array(-56, -80, -56, 696, 728, 696, 736, -104, -56, -80, 88, 72, 528, 72, 528, 184, 504, 208, 504, 264, 520, 312, 576, 312, 586.571, 333.142, 616, 328, 624, 360, 616, 392, 648, 456, 648, 520, 432, 520, 448, 640, 80, 640, 120, 536, 128, 464, 8, 464, 40, 352, 64, 352, 64, 296, 96, 216, 64, 216, 88, 176, 88, 72)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_j4jdt")]
+[node name="Player" parent="." instance=ExtResource("2_j4jdt")]
 position = Vector2(328, 360)
 
 [node name="fire" parent="." instance=ExtResource("4_xpc8x")]
@@ -43,6 +43,6 @@ offset_top = 14.0
 offset_right = 643.0
 offset_bottom = 54.0
 
-[connection signal="blark" from="CharacterBody2D" to="." method="_on_character_body_2d_blark"]
-[connection signal="blark" from="CharacterBody2D" to="score" method="_on_character_body_2d_blark"]
-[connection signal="printer" from="CharacterBody2D" to="." method="_on_character_body_2d_printer"]
+[connection signal="blark" from="Player" to="." method="_on_character_body_2d_blark"]
+[connection signal="blark" from="Player" to="score" method="_on_character_body_2d_blark"]
+[connection signal="printer" from="Player" to="." method="_on_character_body_2d_printer"]
