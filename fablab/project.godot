@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="Fablab"
-run/main_scene="res://Scenes/level_01/level_01.tscn"
+run/main_scene="res://Scenes/LABSUD/labsud.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
 [display]
 
-window/size/viewport_width=648
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
