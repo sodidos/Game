@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvw101qkmin1c"]
+
+[ext_resource type="Texture2D" uid="uid://cfxxk76tsxl84" path="res://Scenes/table/table.png" id="1_tjvom"]
+[ext_resource type="Texture2D" uid="uid://chkq3g5ugjs8w" path="res://Scenes/3dprinter/Prusa-MK3S-assemblee.png" id="2_3bre1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v37b2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tjvom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3bre1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcwl2"]
+size = Vector2(123, 2)
+
+[node name="Table" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" groups=["printer"]]
+sprite_frames = SubResource("SpriteFrames_v37b2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["printer"]]
+position = Vector2(0, -56)
+shape = SubResource("RectangleShape2D_jcwl2")
