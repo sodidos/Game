@@ -188,7 +188,7 @@ shape = SubResource("CapsuleShape2D_pdx26")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 32.0
-debug_enabled = true
+avoidance_enabled = true
 
 [node name="pathfinderTimer" type="Timer" parent="."]
 autostart = true
@@ -196,12 +196,17 @@ autostart = true
 [node name="idleTimer" type="Timer" parent="."]
 
 [node name="interactionTimer" type="Timer" parent="."]
+wait_time = 5.0
 
 [node name="Help" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(42, -51)
 texture = ExtResource("3_diq3t")
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 67.87
+
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="pathfinderTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="idleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="interactionTimer" to="." method="_on_interaction_timer_timeout"]

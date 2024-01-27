@@ -28,5 +28,5 @@ size = Vector2(123, 2)
 sprite_frames = SubResource("SpriteFrames_v37b2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["printer"]]
-position = Vector2(0, -56)
+position = Vector2(0, -58)
 shape = SubResource("RectangleShape2D_jcwl2")

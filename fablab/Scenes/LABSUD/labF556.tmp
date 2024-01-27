@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwiq3guhtu4cx"]
+[gd_scene load_steps=14 format=3 uid="uid://dwiq3guhtu4cx"]
 
 [ext_resource type="Script" path="res://Scenes/LABSUD/labsud.gd" id="1_n2hcn"]
 [ext_resource type="Texture2D" uid="uid://dcj3omx1kpjec" path="res://Scenes/LABSUD/tilemap.png" id="2_scsnt"]
 [ext_resource type="PackedScene" uid="uid://b205vxyasxbjv" path="res://Scenes/player/player.tscn" id="2_x5eha"]
+[ext_resource type="PackedScene" uid="uid://dvw101qkmin1c" path="res://Scenes/table/table.tscn" id="4_6et3u"]
 [ext_resource type="PackedScene" uid="uid://dmyxxggre5anc" path="res://Scenes/3dprinter/3dprinter.tscn" id="5_rcysk"]
 [ext_resource type="PackedScene" uid="uid://blvxqc3puljvu" path="res://Scenes/npc/npc.tscn" id="6_bmj3a"]
 [ext_resource type="Script" path="res://Scenes/LABSUD/npcSpawner.gd" id="7_tbm8h"]
@@ -186,23 +187,42 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 65536, 0, 65536, 0, 1, 2, 65536
 [node name="Player" parent="." instance=ExtResource("2_x5eha")]
 position = Vector2(444, 352)
 
+[node name="npc" parent="." node_paths=PackedStringArray("machines", "sortie") instance=ExtResource("6_bmj3a")]
+position = Vector2(1084, 88)
+machines = NodePath("../Machines")
+sortie = NodePath("../Sortie")
+
 [node name="Machines" type="Node2D" parent="."]
 
-[node name="printer" parent="Machines" instance=ExtResource("5_rcysk")]
-position = Vector2(1375, 351)
+[node name="IMP1" parent="Machines" instance=ExtResource("4_6et3u")]
+position = Vector2(1376, 394)
+metadata/_edit_group_ = true
 
-[node name="printer2" parent="Machines" instance=ExtResource("5_rcysk")]
-position = Vector2(769, 31)
+[node name="printer" parent="Machines/IMP1" instance=ExtResource("5_rcysk")]
+position = Vector2(-1, -43)
+
+[node name="imp1Marker" type="Marker2D" parent="Machines/IMP1"]
+position = Vector2(0, 18)
+gizmo_extents = 40.7
+
+[node name="IMP2" parent="Machines" instance=ExtResource("4_6et3u")]
+position = Vector2(770, 74)
+metadata/_edit_group_ = true
+
+[node name="printer" parent="Machines/IMP2" instance=ExtResource("5_rcysk")]
+position = Vector2(-1, -43)
+
+[node name="imp2Marker" type="Marker2D" parent="Machines/IMP2"]
+position = Vector2(0, 18)
+gizmo_extents = 40.7
 
 [node name="Sortie" type="Node2D" parent="."]
 position = Vector2(1089, 0)
 
-[node name="npcSpawner" type="Node2D" parent="." node_paths=PackedStringArray("machines", "sortie")]
+[node name="npcSpawner" type="Node2D" parent="." node_paths=PackedStringArray("newNPC")]
 position = Vector2(1090, 0)
 script = ExtResource("7_tbm8h")
-newNPC = ExtResource("6_bmj3a")
-machines = NodePath("../Machines")
-sortie = NodePath("../Sortie")
+newNPC = NodePath("../npc")
 
 [node name="npcSpawnerTimer" type="Timer" parent="npcSpawner"]
 
