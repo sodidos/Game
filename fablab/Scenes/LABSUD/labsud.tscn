@@ -188,11 +188,29 @@ position = Vector2(444, 352)
 
 [node name="Machines" type="Node2D" parent="."]
 
+[node name="printer7" parent="Machines" instance=ExtResource("5_rcysk")]
+position = Vector2(1637, 345)
+
 [node name="printer" parent="Machines" instance=ExtResource("5_rcysk")]
 position = Vector2(1375, 351)
 
 [node name="printer2" parent="Machines" instance=ExtResource("5_rcysk")]
 position = Vector2(769, 31)
+
+[node name="printer3" parent="Machines" instance=ExtResource("5_rcysk")]
+position = Vector2(163, 37)
+
+[node name="printer4" parent="Machines" instance=ExtResource("5_rcysk")]
+position = Vector2(1359, 30)
+
+[node name="printer5" parent="Machines" instance=ExtResource("5_rcysk")]
+position = Vector2(1387, 730)
+
+[node name="printer6" parent="Machines" instance=ExtResource("5_rcysk")]
+position = Vector2(204, 541)
+
+[node name="printer8" parent="Machines" instance=ExtResource("5_rcysk")]
+position = Vector2(653, 542)
 
 [node name="Sortie" type="Node2D" parent="."]
 position = Vector2(1089, 0)

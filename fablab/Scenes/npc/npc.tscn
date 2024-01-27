@@ -204,7 +204,8 @@ position = Vector2(42, -51)
 texture = ExtResource("3_diq3t")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-radius = 67.87
+position = Vector2(-8, -3)
+radius = 128.0
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="pathfinderTimer" to="." method="_on_timer_timeout"]
