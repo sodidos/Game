@@ -44,17 +44,17 @@ region = Rect2(255, 128, 85, 128)
 atlas = ExtResource("2_e0g65")
 region = Rect2(255, 256, 85, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ohlq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg7wj"]
 atlas = ExtResource("2_e0g65")
-region = Rect2(255, 0, 85, 128)
+region = Rect2(85, 0, 85, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tuijk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ofcp"]
 atlas = ExtResource("2_e0g65")
-region = Rect2(255, 128, 85, 128)
+region = Rect2(85, 128, 85, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pnkmg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tw4c"]
 atlas = ExtResource("2_e0g65")
-region = Rect2(255, 256, 85, 128)
+region = Rect2(85, 256, 85, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4h2st"]
 atlas = ExtResource("2_e0g65")
@@ -138,16 +138,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1ohlq")
+"texture": SubResource("AtlasTexture_yg7wj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tuijk")
+"texture": SubResource("AtlasTexture_0ofcp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1ohlq")
+"texture": SubResource("AtlasTexture_yg7wj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pnkmg")
+"texture": SubResource("AtlasTexture_0tw4c")
 }],
 "loop": true,
 "name": &"walk_right",
@@ -178,8 +178,9 @@ script = ExtResource("1_r76nh")
 speed = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_66bss")
-animation = &"idle_down"
+animation = &"walk_right"
 
 [node name="npcCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 1)
@@ -189,8 +190,11 @@ shape = SubResource("CapsuleShape2D_pdx26")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 32.0
 avoidance_enabled = true
+radius = 16.0
+debug_enabled = true
 
 [node name="pathfinderTimer" type="Timer" parent="."]
+wait_time = 0.2
 autostart = true
 
 [node name="idleTimer" type="Timer" parent="."]
@@ -203,11 +207,8 @@ visible = false
 position = Vector2(42, -51)
 texture = ExtResource("3_diq3t")
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-position = Vector2(-8, -3)
-radius = 128.0
-
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="pathfinderTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="idleTimer" to="." method="_on_idle_timer_timeout"]
 [connection signal="timeout" from="interactionTimer" to="." method="_on_interaction_timer_timeout"]

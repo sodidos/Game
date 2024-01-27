@@ -216,9 +216,11 @@ position = Vector2(653, 542)
 position = Vector2(1089, 0)
 
 [node name="npcSpawner" type="Node2D" parent="." node_paths=PackedStringArray("machines", "sortie")]
-position = Vector2(1090, 0)
+position = Vector2(1089, 0)
 script = ExtResource("7_tbm8h")
 newNPC = ExtResource("6_bmj3a")
+minTimeSpawn = 0
+maxTimeSpawn = 1
 machines = NodePath("../Machines")
 sortie = NodePath("../Sortie")
 

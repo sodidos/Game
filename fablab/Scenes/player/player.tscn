@@ -200,6 +200,10 @@ animation = &"idle_down"
 position = Vector2(0.25, 0)
 shape = SubResource("CapsuleShape2D_rxu4e")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 64.0
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="playerContact" type="CollisionShape2D" parent="Area2D"]

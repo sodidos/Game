@@ -1,17 +1,18 @@
 extends Node
 
 @export var newNPC: PackedScene
-
+@export var minTimeSpawn = 5
+@export var maxTimeSpawn = 10 
 @export var machines: Node2D
 @export var sortie: Node2D
-
+@export var onlyOneNPC = false
 @onready var npcSpawnerTimer := $npcSpawnerTimer as Timer
 #@export var npc: CharacterBody2D
 var rand=RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var newNpcTime = rand.randf_range(1, 10)
+	var newNpcTime = rand.randf_range(0, 1)
 	npcSpawnerTimer.wait_time = newNpcTime
 	npcSpawnerTimer.start()
 	print("Add NPC")
@@ -33,5 +34,7 @@ func _on_npc_spawner_timer_timeout():
 		n.machine = machine
 		n.sortie = sortie
 		add_child(n)
+		if(onlyOneNPC):
+			npcSpawnerTimer.stop()
 	else:
 		print("Machine not free :-()")
