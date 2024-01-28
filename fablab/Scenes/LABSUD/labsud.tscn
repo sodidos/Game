@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://blu5u24mtjofl" path="res://Scenes/coworking/coworking.tscn" id="7_ri8vj"]
 [ext_resource type="Script" path="res://Scenes/LABSUD/npcSpawner.gd" id="7_tbm8h"]
 [ext_resource type="AudioStream" uid="uid://b632etn3h6cdr" path="res://Scenes/radio/mp3/MusicGameFabLab.mp3" id="8_x5d5x"]
+[ext_resource type="PackedScene" uid="uid://t2rlr0ddfpas" path="res://Scenes/ordi/ordi.tscn" id="9_rf3i6"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_d2yc8"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -218,7 +219,7 @@ position = Vector2(651, 571)
 [node name="Exit" type="Node2D" parent="."]
 position = Vector2(1089, 0)
 
-[node name="npcSpawner" type="Node2D" parent="." node_paths=PackedStringArray("machines", "exit", "player")]
+[node name="npcSpawner" type="Node2D" parent="." node_paths=PackedStringArray("machines", "exit", "player", "ordis")]
 position = Vector2(1089, 0)
 script = ExtResource("7_tbm8h")
 newNPC = ExtResource("6_bmj3a")
@@ -227,6 +228,7 @@ maxTimeSpawn = 1
 machines = NodePath("../Machines")
 exit = NodePath("../Exit")
 player = NodePath("../Player")
+ordis = NodePath("../Ordis")
 
 [node name="npcSpawnerTimer" type="Timer" parent="npcSpawner"]
 
@@ -236,6 +238,17 @@ position = Vector2(1441, 928)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_x5d5x")
 autoplay = true
+
+[node name="Ordis" type="Node2D" parent="."]
+
+[node name="Ordi" parent="Ordis" instance=ExtResource("9_rf3i6")]
+position = Vector2(1399, 915)
+
+[node name="Ordi2" parent="Ordis" instance=ExtResource("9_rf3i6")]
+position = Vector2(1229, 915)
+
+[node name="Ordi3" parent="Ordis" instance=ExtResource("9_rf3i6")]
+position = Vector2(1578, 915)
 
 [connection signal="timeout" from="npcSpawner/npcSpawnerTimer" to="npcSpawner" method="_on_npc_spawner_timer_timeout"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

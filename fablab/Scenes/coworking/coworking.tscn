@@ -1,11 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://blu5u24mtjofl"]
+[gd_scene load_steps=2 format=3 uid="uid://blu5u24mtjofl"]
 
 [ext_resource type="Texture2D" uid="uid://cv0vv6fbtllgq" path="res://Scenes/coworking/largetable_proto.png" id="1_gqnkv"]
-[ext_resource type="Script" path="res://Scenes/coworking/pc.gd" id="2_3nf83"]
-[ext_resource type="Texture2D" uid="uid://dgk2f721quy37" path="res://Scenes/ordi/ordi.png" id="3_x1pmd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_12wls"]
-size = Vector2(448, 64)
 
 [node name="Coworking" type="Node2D"]
 
@@ -15,34 +10,3 @@ size = Vector2(448, 64)
 texture = ExtResource("1_gqnkv")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="largetable"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="largetable/StaticBody2D"]
-shape = SubResource("RectangleShape2D_12wls")
-
-[node name="pc" type="Node2D" parent="."]
-script = ExtResource("2_3nf83")
-
-[node name="Sprite2D" type="Sprite2D" parent="pc"]
-position = Vector2(34, -24)
-texture = ExtResource("3_x1pmd")
-
-[node name="pc2" type="Node2D" parent="."]
-script = ExtResource("2_3nf83")
-
-[node name="Sprite2D" type="Sprite2D" parent="pc2"]
-position = Vector2(-166, -24)
-texture = ExtResource("3_x1pmd")
-
-[node name="pc3" type="Node2D" parent="."]
-script = ExtResource("2_3nf83")
-
-[node name="Sprite2D" type="Sprite2D" parent="pc3"]
-position = Vector2(-69, -24)
-texture = ExtResource("3_x1pmd")
-
-[node name="pc4" type="Node2D" parent="."]
-script = ExtResource("2_3nf83")
-
-[node name="Sprite2D" type="Sprite2D" parent="pc4"]
-position = Vector2(138, -24)
-texture = ExtResource("3_x1pmd")

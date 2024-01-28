@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 50
+var speed = 500
 @export var min_idle = 3
 @export var max_idle = 10
 
@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var machines: Node2D
 @export var player: Node2D
 @export var exit: Node2D
-@export var computers: Node2D
+@export var ordis: Node2D
 
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var pathfinderTimer := $pathfinderTimer as Timer
@@ -35,6 +35,7 @@ var old_direction = Vector2()
 var rand=RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#destination = ordis.get_children()[0]
 	destination = player
 	nav_agent.target_position = destination.global_position 
 	print("New NPC")
@@ -99,6 +100,17 @@ func _on_dialog_timer_timeout():
 	elif(dialogState == 1):
 		$dialog.visible = false
 		dialogState = 0
+		print("Destination")
+		
+		for ordi in ordis.get_children():
+			if ordi.in_use == false:
+				destination = ordi
+				pathfinderTimer.start()
+				moving = true
+				print(ordi)
+				break
+		dialogTimer.stop()
+				
 
 func _on_navigation_agent_2d_navigation_finished():
 	if(goinghome):
@@ -108,13 +120,37 @@ func _on_navigation_agent_2d_navigation_finished():
 		print("Destination Reached")
 		moving = false
 		pathfinderTimer.stop()
-		#var idletimer_rand = rand.randi_range(min_idle, max_idle)
-		#print(idletimer_rand)
-		#idleTimer.wait_time = idletimer_rand
-		#idleTimer.start()
-		#sprite.play("idle_up")
+		sprite.play("idle_up")
+		if(destination.type == "ordi"):
+			print("ordi")
+			destination.in_use = true
+			var idletimer_rand = rand.randi_range(min_idle, max_idle)
+			print(idletimer_rand)
+			idleTimer.wait_time = idletimer_rand
+			idleTimer.start()
+		elif(destination.type == "machine"):
+			print("machine")
+			destination.in_use = true
+			var idletimer_rand = rand.randi_range(min_idle, max_idle)
+			print(idletimer_rand)
+			idleTimer.wait_time = idletimer_rand
+			idleTimer.start()
+		
+		#
 
-#func _on_idle_timer_timeout():
+func _on_idle_timer_timeout():
+	if(destination.type == "ordi"):
+		destination.in_use = false
+		for machine in machines.get_children():
+			if machine.in_use == false:
+				destination = machine
+				pathfinderTimer.start()
+				moving = true
+				idleTimer.stop()
+	elif(destination.type == "machine"):
+		destination.in_use = false
+		idleTimer.stop()
+		destination = exit
 #	Help.visible = true
 #	idleTimer.stop()
 #	interactionTimer.start()

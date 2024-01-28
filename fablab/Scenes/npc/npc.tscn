@@ -172,15 +172,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pdx26"]
-radius = 27.2727
-height = 90.9091
+radius = 50.0
+height = 263.636
 
 [node name="npc" type="CharacterBody2D"]
 z_index = 10
 slide_on_ceiling = false
 floor_stop_on_slope = false
 script = ExtResource("1_r76nh")
-speed = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -1)
@@ -190,7 +189,7 @@ animation = &"walk_up"
 [node name="npcCollision" type="CollisionShape2D" parent="."]
 z_index = 4
 y_sort_enabled = true
-position = Vector2(-2, 1)
+position = Vector2(-1, 18)
 scale = Vector2(0.22, 0.22)
 shape = SubResource("CapsuleShape2D_pdx26")
 

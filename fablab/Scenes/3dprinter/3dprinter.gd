@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var inuse = false
-
+@export var in_use = false
+var type = "machine"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

@@ -7,6 +7,7 @@ extends Node
 @export var machines: Node2D
 @export var exit: Node2D
 @export var player: CharacterBody2D
+@export var ordis: Node2D
 @export var onlyOneNPC = false
 @onready var npcSpawnerTimer := $npcSpawnerTimer as Timer
 
@@ -40,6 +41,7 @@ func _on_npc_spawner_timer_timeout():
 	n.player = player
 	n.exit = exit
 	n.machines = machines
+	n.ordis = ordis
 	add_child(n)
 	print("Spawn Blocked")
 	if(!onlyOneNPC):

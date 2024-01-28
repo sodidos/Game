@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://t2rlr0ddfpas"]
+
+[ext_resource type="Script" path="res://Scenes/ordi/pc.gd" id="1_x7baa"]
+[ext_resource type="Texture2D" uid="uid://dgk2f721quy37" path="res://Scenes/ordi/ordi.png" id="2_pjy8w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwdl4"]
+size = Vector2(27, 27)
+
+[node name="Ordi" type="Node2D"]
+script = ExtResource("1_x7baa")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(33.5, -11.5)
+shape = SubResource("RectangleShape2D_vwdl4")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(34, -24)
+texture = ExtResource("2_pjy8w")
