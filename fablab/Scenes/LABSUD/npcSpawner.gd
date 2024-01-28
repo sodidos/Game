@@ -18,7 +18,6 @@ func _ready():
 	print("Add NPC")
 	print(newNpcTime)
 	
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

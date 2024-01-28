@@ -36,6 +36,9 @@ func _physics_process(_delta: float) -> void:
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
 		var intended_velocity = dir * speed
 		nav_agent.set_velocity(intended_velocity)
+	else:
+		if(!sprite.animation == "idle_up"):
+			sprite.play("idle_up")
 
 func makepath() -> void:
 	nav_agent.target_position = destination.global_position 
