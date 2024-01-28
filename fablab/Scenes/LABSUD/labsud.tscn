@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b205vxyasxbjv" path="res://Scenes/player/player.tscn" id="2_x5eha"]
 [ext_resource type="PackedScene" uid="uid://dmyxxggre5anc" path="res://Scenes/3dprinter/3dprinter.tscn" id="5_rcysk"]
 [ext_resource type="PackedScene" uid="uid://blvxqc3puljvu" path="res://Scenes/npc/npc.tscn" id="6_bmj3a"]
+[ext_resource type="PackedScene" uid="uid://blu5u24mtjofl" path="res://Scenes/coworking/coworking.tscn" id="7_ri8vj"]
 [ext_resource type="Script" path="res://Scenes/LABSUD/npcSpawner.gd" id="7_tbm8h"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_d2yc8"]
@@ -235,7 +236,8 @@ player = NodePath("../Player")
 
 [node name="npcSpawnerTimer" type="Timer" parent="npcSpawner"]
 
-[node name="npcSpawnerBlockTimer" type="Timer" parent="npcSpawner"]
+[node name="Coworking" parent="." instance=ExtResource("7_ri8vj")]
+position = Vector2(1441, 928)
 
 [connection signal="timeout" from="npcSpawner/npcSpawnerTimer" to="npcSpawner" method="_on_npc_spawner_timer_timeout"]
 [connection signal="timeout" from="npcSpawner/npcSpawnerBlockTimer" to="npcSpawner" method="_on_npc_spawner_block_timer_timeout"]
