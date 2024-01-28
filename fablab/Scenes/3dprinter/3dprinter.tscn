@@ -1,17 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmyxxggre5anc"]
+[gd_scene load_steps=8 format=3 uid="uid://dmyxxggre5anc"]
 
 [ext_resource type="Script" path="res://Scenes/3dprinter/3dprinter.gd" id="1_nre7m"]
 [ext_resource type="Texture2D" uid="uid://chkq3g5ugjs8w" path="res://Scenes/3dprinter/Prusa-MK3S-assemblee.png" id="1_yhx3u"]
 [ext_resource type="Texture2D" uid="uid://cfxxk76tsxl84" path="res://Scenes/table/table.png" id="2_it5hx"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol82c"]
+atlas = ExtResource("1_yhx3u")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qkea"]
+atlas = ExtResource("1_yhx3u")
+region = Rect2(0, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_a38du"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_yhx3u")
+"texture": SubResource("AtlasTexture_ol82c")
 }],
 "loop": true,
-"name": &"default",
+"name": &"avecBobine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qkea")
+}],
+"loop": true,
+"name": &"sansBobine",
 "speed": 5.0
 }]
 
@@ -30,6 +46,7 @@ texture = ExtResource("2_it5hx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" groups=["printer"]]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_a38du")
+animation = &"avecBobine"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" groups=["printer"]]
 position = Vector2(1, -26)

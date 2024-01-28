@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv4jwmyc6rbpf"]
+
+[ext_resource type="Texture2D" uid="uid://sh77pjc77j7f" path="res://Scenes/box/box_pla/pla_box.png" id="1_c2cqk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dswc"]
+size = Vector2(254, 169)
+
+[node name="BoxPla" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="PlaBox" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_c2cqk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -7)
+shape = SubResource("RectangleShape2D_8dswc")

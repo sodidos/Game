@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c12mvr7bdrvmr"
-path="res://.godot/imported/npc128.png-131358a6d21e68d4b224e275bbeeff5c.ctex"
+uid="uid://sh77pjc77j7f"
+path="res://.godot/imported/pla_box.png-00678a8aa247a98a10b906af2d78ebc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/npc/npc128.png"
-dest_files=["res://.godot/imported/npc128.png-131358a6d21e68d4b224e275bbeeff5c.ctex"]
+source_file="res://Scenes/box/box_pla/pla_box.png"
+dest_files=["res://.godot/imported/pla_box.png-00678a8aa247a98a10b906af2d78ebc9.ctex"]
 
 [params]
 
