@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxty1nnt7iy7o"]
+
+[ext_resource type="Texture2D" uid="uid://cu3h41ptawsd6" path="res://Scenes/radio/radio.png" id="1_1tbgt"]
+
+[node name="Radio" type="Node2D"]
+
+[node name="Radio" type="Sprite2D" parent="."]
+position = Vector2(-1, 1)
+texture = ExtResource("1_1tbgt")
