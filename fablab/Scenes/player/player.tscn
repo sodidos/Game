@@ -183,6 +183,7 @@ radius = 29.0
 height = 142.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 10
 y_sort_enabled = true
 script = ExtResource("1_taolh")
 

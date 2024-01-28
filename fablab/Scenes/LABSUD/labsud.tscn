@@ -181,6 +181,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 script = ExtResource("1_n2hcn")
 
 [node name="TileMap" type="TileMap" parent="."]
+z_index = -100
 position = Vector2(1, 0)
 tile_set = SubResource("TileSet_lr32e")
 rendering_quadrant_size = 64

@@ -220,6 +220,7 @@ offset_right = 191.0
 offset_bottom = -48.0
 
 [node name="dialogText" type="RichTextLabel" parent="dialog"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 178.0
