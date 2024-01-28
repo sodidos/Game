@@ -9,7 +9,7 @@ extends Node
 @export var player: CharacterBody2D
 @export var onlyOneNPC = false
 @onready var npcSpawnerTimer := $npcSpawnerTimer as Timer
-@onready var npcSpawnerBlockTimer := $npcSpawnerBlockTimer as Timer
+
 var wait_for_space = false
 #@export var npc: CharacterBody2D
 var rand=RandomNumberGenerator.new()
@@ -17,7 +17,7 @@ var rand=RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	newSpawnWait()
-	npcSpawnerBlockTimer.wait_time = SpawnerBlockTime
+
 
 func newSpawnWait():
 	var newNpcTime = rand.randf_range(minTimeSpawn, maxTimeSpawn)
@@ -41,12 +41,11 @@ func _on_npc_spawner_timer_timeout():
 	n.exit = exit
 	n.machines = machines
 	add_child(n)
-	npcSpawnerTimer.stop()
 	print("Spawn Blocked")
 	if(!onlyOneNPC):
-		npcSpawnerBlockTimer.start()
+		npcSpawnerTimer.stop()
 
 func _on_npc_spawner_block_timer_timeout():
 	print("Spawn enable")
 	newSpawnWait()
-	npcSpawnerBlockTimer.stop()
+

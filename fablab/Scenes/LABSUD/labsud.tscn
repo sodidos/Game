@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dwiq3guhtu4cx"]
+[gd_scene load_steps=16 format=3 uid="uid://dwiq3guhtu4cx"]
 
 [ext_resource type="Script" path="res://Scenes/LABSUD/labsud.gd" id="1_n2hcn"]
 [ext_resource type="Texture2D" uid="uid://dcj3omx1kpjec" path="res://Scenes/LABSUD/tilemap.png" id="2_scsnt"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://blvxqc3puljvu" path="res://Scenes/npc/npc.tscn" id="6_bmj3a"]
 [ext_resource type="PackedScene" uid="uid://blu5u24mtjofl" path="res://Scenes/coworking/coworking.tscn" id="7_ri8vj"]
 [ext_resource type="Script" path="res://Scenes/LABSUD/npcSpawner.gd" id="7_tbm8h"]
+[ext_resource type="AudioStream" uid="uid://b632etn3h6cdr" path="res://Scenes/radio/mp3/MusicGameFabLab.mp3" id="8_x5d5x"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_d2yc8"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -232,4 +233,9 @@ player = NodePath("../Player")
 [node name="Coworking" parent="." instance=ExtResource("7_ri8vj")]
 position = Vector2(1441, 928)
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_x5d5x")
+autoplay = true
+
 [connection signal="timeout" from="npcSpawner/npcSpawnerTimer" to="npcSpawner" method="_on_npc_spawner_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
