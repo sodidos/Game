@@ -169,11 +169,13 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pdx26"]
-radius = 22.75
-height = 132.0
+radius = 27.2727
+height = 90.9091
 
 [node name="npc" type="CharacterBody2D"]
 z_index = 10
+slide_on_ceiling = false
+floor_stop_on_slope = false
 script = ExtResource("1_r76nh")
 speed = 100
 
@@ -183,19 +185,18 @@ sprite_frames = SubResource("SpriteFrames_66bss")
 animation = &"walk_right"
 
 [node name="npcCollision" type="CollisionShape2D" parent="."]
+z_index = 4
+y_sort_enabled = true
 position = Vector2(-2, 1)
 scale = Vector2(0.22, 0.22)
 shape = SubResource("CapsuleShape2D_pdx26")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-target_desired_distance = 32.0
 path_postprocessing = 1
 avoidance_enabled = true
-radius = 16.0
 debug_enabled = true
 
 [node name="pathfinderTimer" type="Timer" parent="."]
-wait_time = 0.2
 autostart = true
 
 [node name="idleTimer" type="Timer" parent="."]
@@ -208,8 +209,27 @@ visible = false
 position = Vector2(42, -51)
 texture = ExtResource("3_diq3t")
 
+[node name="dialog" type="ColorRect" parent="."]
+visible = false
+offset_left = 27.0
+offset_top = -101.0
+offset_right = 191.0
+offset_bottom = -48.0
+
+[node name="dialogText" type="RichTextLabel" parent="dialog"]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 178.0
+offset_bottom = 72.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "This is a placeholder message"
+fit_content = true
+
+[node name="dialogTimer" type="Timer" parent="dialog"]
+
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="pathfinderTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="idleTimer" to="." method="_on_idle_timer_timeout"]
 [connection signal="timeout" from="interactionTimer" to="." method="_on_interaction_timer_timeout"]
+[connection signal="timeout" from="dialog/dialogTimer" to="." method="_on_dialog_timer_timeout"]

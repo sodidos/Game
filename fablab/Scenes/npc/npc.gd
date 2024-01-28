@@ -3,8 +3,13 @@ extends CharacterBody2D
 @export var speed = 50
 @export var min_idle = 3
 @export var max_idle = 10
-@export var machine: Node2D
-@export var sortie: Node2D
+
+# Destinations
+@export var machines: Node2D
+@export var player: Node2D
+@export var exit: Node2D
+@export var computers: Node2D
+
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var pathfinderTimer := $pathfinderTimer as Timer
 @onready var idleTimer := $idleTimer as Timer
@@ -12,8 +17,16 @@ extends CharacterBody2D
 @onready var Help := $Help as Sprite2D
 @onready var sprite = $AnimatedSprite2D
 
+@onready var dialogText := $dialog/dialogText
+@onready var dialogTimer = $dialog/dialogTimer
+var dialogState = 0
+
 var destination: Node2D
 var machine_in_use:Node2D
+
+var fab_name = [
+	"Truc1","Truc2","Truc3","Truc4"
+]
 
 var moving = true
 var goinghome = false
@@ -22,10 +35,12 @@ var old_direction = Vector2()
 var rand=RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	destination = player
+	nav_agent.target_position = destination.global_position 
 	print("New NPC")
-	destination = machine
+	print("Go to -->")
 	print(destination)
-	sprite.play("idle_up")
+	sprite.play("walk_down")
 
 	#for machine in machines.get_children():
 	#	print(machine)
@@ -37,12 +52,21 @@ func _physics_process(_delta: float) -> void:
 		var intended_velocity = dir * speed
 		nav_agent.set_velocity(intended_velocity)
 	else:
-		if(!sprite.animation == "idle_up"):
-			sprite.play("idle_up")
+		if(destination == player):
+			if(sprite.animation != "idle_down"):
+				sprite.play("idle_down")
+	#	if(!sprite.animation == "idle_up"):
+	#		sprite.play("idle_up")
 
 func makepath() -> void:
+	print("Pathfinding...")
 	nav_agent.target_position = destination.global_position 
 	var direction = old_direction - nav_agent.get_next_path_position()
+	print(nav_agent.distance_to_target())
+	if(destination == player):
+		if(nav_agent.distance_to_target() < 256):
+			print("NEAR FABMANAGER")
+			helloFabManager()
 	if(abs(velocity.x) > abs(velocity.y)):
 		if(velocity.x < 0):
 			sprite.play("walk_left")
@@ -54,37 +78,58 @@ func makepath() -> void:
 		else:
 			sprite.play("walk_down")
 	old_direction = direction
+	
 func _on_timer_timeout():
 	makepath()
 
+func helloFabManager():
+	pathfinderTimer.stop()
+	moving = false
+	print("Hello FabManager")
+	sprite.play("idle_down")
+	$dialog.visible = true
+	dialogText.text = "Salut FabManager!"
+	dialogTimer.start()
+	
+func _on_dialog_timer_timeout():
+	if(dialogState == 0):
+		var rand_fab = rand.randi_range(0,len(fab_name))
+		dialogText.text = "Je fabrique " + fab_name[rand_fab]
+		dialogState = dialogState + 1
+	elif(dialogState == 1):
+		$dialog.visible = false
+		dialogState = 0
+	
 func _on_navigation_agent_2d_navigation_finished():
 	if(goinghome):
-		machine.inuse = false
+		#machine.inuse = false
 		queue_free()
 	else:
+		print("Destination Reached")
 		moving = false
 		pathfinderTimer.stop()
-		var idletimer_rand = rand.randi_range(min_idle, max_idle)
-		print(idletimer_rand)
-		idleTimer.wait_time = idletimer_rand
-		idleTimer.start()
-		print("Stop moving!!!")
-		sprite.play("idle_up")
+		#var idletimer_rand = rand.randi_range(min_idle, max_idle)
+		#print(idletimer_rand)
+		#idleTimer.wait_time = idletimer_rand
+		#idleTimer.start()
+		#sprite.play("idle_up")
 
+#func _on_idle_timer_timeout():
+#	Help.visible = true
+#	idleTimer.stop()
+#	interactionTimer.start()
 
-func _on_idle_timer_timeout():
-	Help.visible = true
-	idleTimer.stop()
-	interactionTimer.start()
-
-func _on_interaction_timer_timeout():
-	goinghome = true
-	Help.visible = false
-	interactionTimer.stop()
-	destination = sortie
-	pathfinderTimer.start()
-	moving = true
+#func _on_interaction_timer_timeout():
+#	goinghome = true
+#	Help.visible = false
+#	interactionTimer.stop()
+#	destination = exit
+#	pathfinderTimer.start()
+#	moving = true
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
-	velocity = safe_velocity
-	move_and_slide() # Replace with function body.
+	if(moving):
+		velocity = safe_velocity
+		move_and_slide() # Replace with function body.
+
+
