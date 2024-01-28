@@ -219,18 +219,22 @@ position = Vector2(204, 541)
 [node name="printer8" parent="Machines" instance=ExtResource("5_rcysk")]
 position = Vector2(653, 542)
 
-[node name="Sortie" type="Node2D" parent="."]
+[node name="Exit" type="Node2D" parent="."]
 position = Vector2(1089, 0)
 
-[node name="npcSpawner" type="Node2D" parent="." node_paths=PackedStringArray("machines", "sortie")]
+[node name="npcSpawner" type="Node2D" parent="." node_paths=PackedStringArray("machines", "exit", "player")]
 position = Vector2(1089, 0)
 script = ExtResource("7_tbm8h")
 newNPC = ExtResource("6_bmj3a")
 minTimeSpawn = 0
 maxTimeSpawn = 1
 machines = NodePath("../Machines")
-sortie = NodePath("../Sortie")
+exit = NodePath("../Exit")
+player = NodePath("../Player")
 
 [node name="npcSpawnerTimer" type="Timer" parent="npcSpawner"]
 
+[node name="npcSpawnerBlockTimer" type="Timer" parent="npcSpawner"]
+
 [connection signal="timeout" from="npcSpawner/npcSpawnerTimer" to="npcSpawner" method="_on_npc_spawner_timer_timeout"]
+[connection signal="timeout" from="npcSpawner/npcSpawnerBlockTimer" to="npcSpawner" method="_on_npc_spawner_block_timer_timeout"]
