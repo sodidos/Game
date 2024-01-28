@@ -183,6 +183,7 @@ radius = 29.0
 height = 142.0
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_taolh")
 
 [node name="printerTimer" type="Timer" parent="."]
@@ -197,7 +198,9 @@ sprite_frames = SubResource("SpriteFrames_5xjfp")
 animation = &"idle_down"
 
 [node name="playerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0.25, 0)
+y_sort_enabled = true
+position = Vector2(0.25, 32)
+scale = Vector2(0.465, 0.465)
 shape = SubResource("CapsuleShape2D_rxu4e")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

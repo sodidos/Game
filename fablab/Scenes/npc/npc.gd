@@ -93,13 +93,13 @@ func helloFabManager():
 	
 func _on_dialog_timer_timeout():
 	if(dialogState == 0):
-		var rand_fab = rand.randi_range(0,len(fab_name))
+		var rand_fab = rand.randi_range(0,len(fab_name)-1)
 		dialogText.text = "Je fabrique " + fab_name[rand_fab]
 		dialogState = dialogState + 1
 	elif(dialogState == 1):
 		$dialog.visible = false
 		dialogState = 0
-	
+
 func _on_navigation_agent_2d_navigation_finished():
 	if(goinghome):
 		#machine.inuse = false
