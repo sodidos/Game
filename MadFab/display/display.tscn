@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dio5kfi7ebg0p"]
+
+[ext_resource type="Texture2D" uid="uid://2bcbrk2cn65u" path="res://display/display.png" id="1_4qrbr"]
+[ext_resource type="Texture2D" uid="uid://p4vmm1s27aqs" path="res://display/display_button.png" id="2_fs27r"]
+
+[node name="display" type="Node2D"]
+
+[node name="display" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(4, 1.5)
+texture = ExtResource("1_4qrbr")
+
+[node name="BoutonImp3d" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(62, 0.5)
+texture = ExtResource("2_fs27r")

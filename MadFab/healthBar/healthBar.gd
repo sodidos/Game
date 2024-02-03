@@ -9,7 +9,7 @@ func _ready():
 
 func update():
 	value = printer3D.currentHealth
-	print("Ouch")
+	print("Update LifeBar")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

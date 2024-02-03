@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgwm7vf3uvnqj"
-path="res://.godot/imported/plateau_imp3D.png-79c163508cdfdb0094f996fade3a203a.ctex"
+uid="uid://vfy3jiwj7wq2"
+path="res://.godot/imported/axis.png-06c6454b34736eda3c172411d480f723.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/plateau_imp3D.png"
-dest_files=["res://.godot/imported/plateau_imp3D.png-79c163508cdfdb0094f996fade3a203a.ctex"]
+source_file="res://hotend/axis.png"
+dest_files=["res://.godot/imported/axis.png-06c6454b34736eda3c172411d480f723.ctex"]
 
 [params]
 

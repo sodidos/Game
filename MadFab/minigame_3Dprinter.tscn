@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcekxv7kg2l7b"]
+
+[ext_resource type="PackedScene" uid="uid://1on4amcdkanr" path="res://bed/bed.tscn" id="2_lfrjj"]
+[ext_resource type="PackedScene" uid="uid://dio5kfi7ebg0p" path="res://display/display.tscn" id="2_mokjn"]
+[ext_resource type="PackedScene" uid="uid://d5u5po801om5" path="res://hotend/hotEnd.tscn" id="3_n1lm3"]
+[ext_resource type="PackedScene" uid="uid://chhp3x11sk1kd" path="res://frame/frame.tscn" id="4_5q4qy"]
+
+[node name="miniGame_3Dprinter" type="Node2D"]
+position = Vector2(211, 407)
+
+[node name="display" parent="." instance=ExtResource("2_mokjn")]
+position = Vector2(4, 156)
+
+[node name="bed" parent="." instance=ExtResource("2_lfrjj")]
+position = Vector2(6, 108)
+
+[node name="hotEnd" parent="." instance=ExtResource("3_n1lm3")]
+position = Vector2(9, 45)
+
+[node name="frame" parent="." instance=ExtResource("4_5q4qy")]
+position = Vector2(9, 0)
