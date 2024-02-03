@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vfy3jiwj7wq2"
-path="res://.godot/imported/axis.png-06c6454b34736eda3c172411d480f723.ctex"
+uid="uid://q80ub60x7xmb"
+path="res://.godot/imported/filament.png-5072403710c4f2369cb4effcf0178ee3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hotend/axis.png"
-dest_files=["res://.godot/imported/axis.png-06c6454b34736eda3c172411d480f723.ctex"]
+source_file="res://display/ICONS/filament.png"
+dest_files=["res://.godot/imported/filament.png-5072403710c4f2369cb4effcf0178ee3.ctex"]
 
 [params]
 
