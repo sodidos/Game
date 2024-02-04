@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://1on4amcdkanr"]
+
+[ext_resource type="Texture2D" uid="uid://bgwm7vf3uvnqj" path="res://3Dprinter/bed/plateau_imp3D.png" id="1_wb32l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ne0w0"]
+size = Vector2(165.5, 23)
+
+[node name="bedArea" type="Area2D"]
+position = Vector2(1, 0)
+scale = Vector2(1.4, 1)
+
+[node name="bedSprite" type="Sprite2D" parent="."]
+position = Vector2(-0.5, -0.5)
+texture = ExtResource("1_wb32l")
+
+[node name="bedCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, 0)
+shape = SubResource("RectangleShape2D_ne0w0")

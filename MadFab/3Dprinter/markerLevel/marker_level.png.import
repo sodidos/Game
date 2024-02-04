@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgwm7vf3uvnqj"
-path="res://.godot/imported/plateau_imp3D.png-b70677d56081376f3d1d31f00e170306.ctex"
+uid="uid://cxpbycia5lcc4"
+path="res://.godot/imported/marker_level.png-fcfea44c6b0fad90721d82048be79e10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bed/plateau_imp3D.png"
-dest_files=["res://.godot/imported/plateau_imp3D.png-b70677d56081376f3d1d31f00e170306.ctex"]
+source_file="res://3Dprinter/markerLevel/marker_level.png"
+dest_files=["res://.godot/imported/marker_level.png-fcfea44c6b0fad90721d82048be79e10.ctex"]
 
 [params]
 

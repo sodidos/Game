@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://bcekxv7kg2l7b"]
+
+[ext_resource type="Script" path="res://3Dprinter/3Dprinter.gd" id="1_f2hgy"]
+[ext_resource type="PackedScene" uid="uid://dio5kfi7ebg0p" path="res://3Dprinter/display/display.tscn" id="2_pf2q7"]
+[ext_resource type="PackedScene" uid="uid://dy85f5nsoqwbj" path="res://3Dprinter/axis/axis.tscn" id="3_74kx2"]
+[ext_resource type="PackedScene" uid="uid://c5bxceceaqrb1" path="res://3Dprinter/hotend/hotEnd.tscn" id="4_mawwo"]
+[ext_resource type="PackedScene" uid="uid://dun572jl4rkur" path="res://3Dprinter/paper_icon/paper_icon.tscn" id="5_n4p0x"]
+[ext_resource type="PackedScene" uid="uid://bx267q50c2pbt" path="res://3Dprinter/paper/paper.tscn" id="6_0bun2"]
+[ext_resource type="PackedScene" uid="uid://wg07egf1hecr" path="res://3Dprinter/levelingMeter/levelingMeter.tscn" id="7_0ivhs"]
+[ext_resource type="PackedScene" uid="uid://1on4amcdkanr" path="res://3Dprinter/bed/bed.tscn" id="8_lac20"]
+[ext_resource type="PackedScene" uid="uid://chhp3x11sk1kd" path="res://3Dprinter/frame/frame.tscn" id="9_nq4mh"]
+[ext_resource type="PackedScene" uid="uid://cng3ob781is02" path="res://3Dprinter/markerLevel/marker_level.tscn" id="10_tp6o4"]
+
+[node name="3Dprinter" type="Node2D" node_paths=PackedStringArray("hotEnd", "paperIcon", "paper", "display", "levelingMeter")]
+position = Vector2(211, 407)
+script = ExtResource("1_f2hgy")
+hotEnd = NodePath("hotEnd")
+paperIcon = NodePath("PaperIcon")
+paper = NodePath("paper")
+display = NodePath("display")
+levelingMeter = NodePath("LevelingMeter")
+
+[node name="display" parent="." instance=ExtResource("2_pf2q7")]
+position = Vector2(4, 156)
+
+[node name="Axis" parent="." instance=ExtResource("3_74kx2")]
+position = Vector2(7, -51)
+
+[node name="hotEnd" parent="." node_paths=PackedStringArray("attachedObject", "display", "levelingMeter", "bed") instance=ExtResource("4_mawwo")]
+attachedObject = NodePath("../Axis")
+display = NodePath("../display")
+levelingMeter = NodePath("../LevelingMeter")
+bed = NodePath("../bed")
+crash_speed = 20
+move_speed = 50
+
+[node name="PaperIcon" parent="." node_paths=PackedStringArray("paper", "markerLevel") instance=ExtResource("5_n4p0x")]
+position = Vector2(-128, 243)
+paper = NodePath("../paper")
+markerLevel = NodePath("../MarkerLevel")
+
+[node name="paper" parent="." instance=ExtResource("6_0bun2")]
+visible = false
+position = Vector2(-96, 93)
+
+[node name="LevelingMeter" parent="." node_paths=PackedStringArray("paper", "markerLevel", "global") instance=ExtResource("7_0ivhs")]
+offset_left = -83.0
+offset_top = -224.0
+offset_right = -83.0
+offset_bottom = -224.0
+pivot_offset = Vector2(113, 19)
+paper = NodePath("../paper")
+markerLevel = NodePath("../MarkerLevel")
+global = NodePath("..")
+
+[node name="bed" parent="." instance=ExtResource("8_lac20")]
+position = Vector2(6, 108)
+
+[node name="frame" parent="." instance=ExtResource("9_nq4mh")]
+position = Vector2(9, 0)
+
+[node name="MarkerLevel" parent="." instance=ExtResource("10_tp6o4")]
+visible = false
+position = Vector2(-1, 92)

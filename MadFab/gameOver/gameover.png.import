@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l53655kx7yy0"
-path="res://.godot/imported/hotend.png-ee34bf62c50de884209f4d1b6f5e1da2.ctex"
+uid="uid://bdicykar88eeb"
+path="res://.godot/imported/gameover.png-bdbcd49aca09f4ca8aa173759ce98cb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hotend/hotend.png"
-dest_files=["res://.godot/imported/hotend.png-ee34bf62c50de884209f4d1b6f5e1da2.ctex"]
+source_file="res://gameOver/gameover.png"
+dest_files=["res://.godot/imported/gameover.png-bdbcd49aca09f4ca8aa173759ce98cb2.ctex"]
 
 [params]
 

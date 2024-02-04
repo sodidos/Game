@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cng3ob781is02"]
+
+[ext_resource type="Texture2D" uid="uid://cxpbycia5lcc4" path="res://3Dprinter/markerLevel/marker_level.png" id="1_b1nnw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5i7p"]
+size = Vector2(8, 8)
+
+[node name="MarkerLevel" type="Area2D"]
+
+[node name="MarkerLevelSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.185315, 0.197674)
+texture = ExtResource("1_b1nnw")
+
+[node name="MarkerLevelCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j5i7p")

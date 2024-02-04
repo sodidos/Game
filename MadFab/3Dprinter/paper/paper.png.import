@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p4vmm1s27aqs"
-path="res://.godot/imported/display_button.png-cdaf675b428c64c96a8fb39457162a1d.ctex"
+uid="uid://iuqn76nkoxtj"
+path="res://.godot/imported/paper.png-65f98e261fdc16ba7dba5d2731fe3b9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://display/display_button.png"
-dest_files=["res://.godot/imported/display_button.png-cdaf675b428c64c96a8fb39457162a1d.ctex"]
+source_file="res://3Dprinter/paper/paper.png"
+dest_files=["res://.godot/imported/paper.png-65f98e261fdc16ba7dba5d2731fe3b9b.ctex"]
 
 [params]
 

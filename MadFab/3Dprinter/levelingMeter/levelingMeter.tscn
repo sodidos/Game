@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://wg07egf1hecr"]
+
+[ext_resource type="Script" path="res://3Dprinter/levelingMeter/levelingMeter.gd" id="1_cjes2"]
+
+[node name="LevelingMeter" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_cjes2")
+metadata/_edit_use_anchors_ = true
+
+[node name="ok1" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(0, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="ok2" type="ColorRect" parent="."]
+layout_mode = 1
+offset_left = 48.0
+offset_right = 88.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="ok3" type="ColorRect" parent="."]
+layout_mode = 1
+offset_left = 96.0
+offset_right = 136.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="ok4" type="ColorRect" parent="."]
+layout_mode = 1
+offset_left = 144.0
+offset_right = 184.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)

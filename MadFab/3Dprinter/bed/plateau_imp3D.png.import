@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc3cubmn5ngs0"
-path="res://.godot/imported/lifebar.png-607dbef375572036f54f8cacd89d35fa.ctex"
+uid="uid://bgwm7vf3uvnqj"
+path="res://.godot/imported/plateau_imp3D.png-4bc8da1b52e5c77c8afc08c3079c8f43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://healthBar/lifebar.png"
-dest_files=["res://.godot/imported/lifebar.png-607dbef375572036f54f8cacd89d35fa.ctex"]
+source_file="res://3Dprinter/bed/plateau_imp3D.png"
+dest_files=["res://.godot/imported/plateau_imp3D.png-4bc8da1b52e5c77c8afc08c3079c8f43.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2bcbrk2cn65u"
-path="res://.godot/imported/display.png-9f7bd2d5603e78818a2ba9ea96c77269.ctex"
+uid="uid://vfy3jiwj7wq2"
+path="res://.godot/imported/axis.png-9e503d430f39d328cb45a59391f9c879.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://display/display.png"
-dest_files=["res://.godot/imported/display.png-9f7bd2d5603e78818a2ba9ea96c77269.ctex"]
+source_file="res://3Dprinter/axis/axis.png"
+dest_files=["res://.godot/imported/axis.png-9e503d430f39d328cb45a59391f9c879.ctex"]
 
 [params]
 

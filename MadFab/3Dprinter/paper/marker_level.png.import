@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccrxe7bnvkxwb"
-path="res://.godot/imported/frame.png-5cf44462ce14b717822707b36d3561b6.ctex"
+uid="uid://cc3cubmn5ngs0"
+path="res://.godot/imported/marker_level.png-e9f242d58ba996f0e06f8719c3f1479e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://frame/frame.png"
-dest_files=["res://.godot/imported/frame.png-5cf44462ce14b717822707b36d3561b6.ctex"]
+source_file="res://3Dprinter/paper/marker_level.png"
+dest_files=["res://.godot/imported/marker_level.png-e9f242d58ba996f0e06f8719c3f1479e.ctex"]
 
 [params]
 

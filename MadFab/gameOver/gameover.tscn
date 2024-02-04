@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bucv1y8sewb85"]
+
+[ext_resource type="Script" path="res://gameOver/gameover.gd" id="1_ns3yg"]
+[ext_resource type="Texture2D" uid="uid://bdicykar88eeb" path="res://gameOver/gameover.png" id="1_yh0yv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlk0v"]
+size = Vector2(419, 804)
+
+[node name="Gameover" type="Area2D"]
+script = ExtResource("1_ns3yg")
+
+[node name="GameOverSprite" type="Sprite2D" parent="."]
+position = Vector2(205, 328)
+texture = ExtResource("1_yh0yv")
+
+[node name="GameOverCollision" type="CollisionShape2D" parent="."]
+position = Vector2(207.5, 399)
+shape = SubResource("RectangleShape2D_mlk0v")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
