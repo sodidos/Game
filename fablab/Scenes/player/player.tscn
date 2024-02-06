@@ -196,7 +196,11 @@ one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5xjfp")
+<<<<<<< Updated upstream
 animation = &"idle_down"
+=======
+animation = &"walk_right"
+>>>>>>> Stashed changes
 
 [node name="playerCollision" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
