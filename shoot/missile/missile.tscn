@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://wjeqxj6l7b3y"]
+
+[ext_resource type="PackedScene" uid="uid://e7cekgew6iv3" path="res://missile/missile.blend" id="1_nxoqu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iu7sw"]
+size = Vector3(0.0478516, 1, 0.139114)
+
+[node name="missile" type="Area3D"]
+
+[node name="missile2" parent="." instance=ExtResource("1_nxoqu")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0163651)
+shape = SubResource("BoxShape3D_iu7sw")
