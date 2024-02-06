@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://dio5kfi7ebg0p"]
+
+[ext_resource type="Texture2D" uid="uid://2bcbrk2cn65u" path="res://display/display.png" id="1_4qrbr"]
+[ext_resource type="Script" path="res://display/display.gd" id="1_ct5uk"]
+[ext_resource type="Texture2D" uid="uid://p4vmm1s27aqs" path="res://display/display_button.png" id="2_fs27r"]
+[ext_resource type="Texture2D" uid="uid://dgiqq3fhwdhth" path="res://display/ICONS/default.png" id="4_pci23"]
+[ext_resource type="Texture2D" uid="uid://q80ub60x7xmb" path="res://display/ICONS/filament.png" id="5_qia2o"]
+[ext_resource type="Texture2D" uid="uid://c3rvisdhnmqq2" path="res://display/ICONS/leveling.png" id="6_kg02w"]
+[ext_resource type="Texture2D" uid="uid://v6u0vo7kupve" path="res://display/ICONS/print.png" id="7_npcam"]
+[ext_resource type="Texture2D" uid="uid://hslsejlea3y1" path="res://light.png" id="8_ruibu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_klkog"]
+radius = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eopp"]
+size = Vector2(96, 37)
+
+[node name="displayArea" type="Area2D"]
+script = ExtResource("1_ct5uk")
+
+[node name="buttonArea" type="Area2D" parent="."]
+
+[node name="buttonCollision" type="CollisionShape2D" parent="buttonArea"]
+z_index = 7
+position = Vector2(62, 1)
+shape = SubResource("CircleShape2D_klkog")
+
+[node name="displayCollision" type="CollisionShape2D" parent="."]
+z_index = 7
+position = Vector2(-6, 1.5)
+shape = SubResource("RectangleShape2D_2eopp")
+
+[node name="display" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(4, 1.5)
+texture = ExtResource("1_4qrbr")
+
+[node name="BoutonImp3d" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(62, 0.5)
+texture = ExtResource("2_fs27r")
+
+[node name="Default" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-6, 2)
+texture = ExtResource("4_pci23")
+
+[node name="Filament" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(-6, 1)
+texture = ExtResource("5_qia2o")
+
+[node name="Leveling" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(-6, 2)
+texture = ExtResource("6_kg02w")
+
+[node name="Print" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(-6, 1)
+texture = ExtResource("7_npcam")
+
+[node name="light" type="PointLight2D" parent="."]
+position = Vector2(-6, 2)
+scale = Vector2(1.09091, 0.575758)
+color = Color(0.866667, 0.184314, 0.290196, 1)
+energy = 0.5
+blend_mode = 2
+texture = ExtResource("8_ruibu")
+texture_scale = 0.11
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="input_event" from="buttonArea" to="." method="_on_button_area_input_event"]
