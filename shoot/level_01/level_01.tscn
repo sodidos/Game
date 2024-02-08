@@ -1,7 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw2r1ksvipmky"]
+[gd_scene load_steps=5 format=3 uid="uid://dw2r1ksvipmky"]
 
 [ext_resource type="PackedScene" uid="uid://d3cisoc1yhfls" path="res://player/player.tscn" id="1_5j2ij"]
+[ext_resource type="Script" path="res://level_01/Camera3D.gd" id="2_4x3sb"]
+[ext_resource type="AudioStream" uid="uid://c1fiqul6dobq2" path="res://shoot.wav" id="2_uybpm"]
+[ext_resource type="Script" path="res://level_01/AudioStreamPlayer.gd" id="3_ie0oa"]
 
 [node name="level_01" type="Node3D"]
 
 [node name="player" parent="." instance=ExtResource("1_5j2ij")]
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("spaceship", "camera")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0)
+script = ExtResource("2_4x3sb")
+spaceship = NodePath("../player")
+camera = NodePath(".")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.844319, 0.535842, 0, -0.535842, -0.844319, 0, 2.05548, 4.07086)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_uybpm")
+autoplay = true
+script = ExtResource("3_ie0oa")
+
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
