@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://us2yhoqvt6fm"]
+
+[ext_resource type="Script" path="res://miniGame.gd" id="1_0pyw1"]
+[ext_resource type="PackedScene" uid="uid://q1jlnxwnhjvl" path="res://timerMeter/timerMeter.tscn" id="2_b4v4k"]
+
+[node name="MiniGame" type="Node2D" node_paths=PackedStringArray("TimerMeter", "Seconds")]
+script = ExtResource("1_0pyw1")
+TimerMeter = NodePath("TimerMeter")
+Seconds = NodePath("Seconds")
+
+[node name="TimerMeter" parent="." instance=ExtResource("2_b4v4k")]
+timeSeconds = 100
+
+[node name="Seconds" type="Timer" parent="."]
+
+[connection signal="timeout" from="Seconds" to="." method="_on_seconds_timeout"]

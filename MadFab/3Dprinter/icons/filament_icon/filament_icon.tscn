@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://buy7vjr10maov"]
+
+[ext_resource type="Script" path="res://3Dprinter/icons/filament_icon/filament_icon.gd" id="1_jk85h"]
+[ext_resource type="Texture2D" uid="uid://caandqhsaileu" path="res://3Dprinter/icons/filament_icon/filament_icon.png" id="1_wt1f8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fo2k6"]
+size = Vector2(75, 88)
+
+[node name="FilamentIcon" type="Area2D"]
+script = ExtResource("1_jk85h")
+
+[node name="FilamentIconCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_fo2k6")
+
+[node name="FilamentIcon" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_wt1f8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
