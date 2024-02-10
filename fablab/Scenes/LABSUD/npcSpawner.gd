@@ -44,7 +44,7 @@ func _on_npc_spawner_timer_timeout():
 	n.ordis = ordis
 	add_child(n)
 	print("Spawn Blocked")
-	if(!onlyOneNPC):
+	if(onlyOneNPC):
 		npcSpawnerTimer.stop()
 
 func _on_npc_spawner_block_timer_timeout():
