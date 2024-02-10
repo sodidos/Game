@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0jo4btctdyn8"]
+
+[ext_resource type="Texture2D" uid="uid://dxb7mc7midf6e" path="res://3Dprinter/spool_holder/spool_holder.png" id="1_keo2c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fdwu"]
+size = Vector2(56, 21)
+
+[node name="SpoolHolder" type="Area2D"]
+
+[node name="spoolHolderCollision" type="CollisionShape2D" parent="."]
+position = Vector2(42, -130.5)
+shape = SubResource("RectangleShape2D_1fdwu")
+
+[node name="SpoolHolder" type="Sprite2D" parent="."]
+position = Vector2(23, -58)
+texture = ExtResource("1_keo2c")

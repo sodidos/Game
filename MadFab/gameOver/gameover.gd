@@ -24,7 +24,7 @@ func _on_input_event(viewport, event, shape_idx):
 			queue_free()
 			main.resetTimer()
 			main.resetScore()
-			main.loadGame(main.LEVELING)
+			main.loadGame()
 
 func _on_timer_timeout():
 	accept_input = true

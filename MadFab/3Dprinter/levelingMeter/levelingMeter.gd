@@ -1,9 +1,7 @@
 extends Control
 
 var score = 0
-@export var paper: Area2D
-@export var markerLevel: Area2D
-@export var global: Node
+@export var printer: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,16 +15,16 @@ func add_score():
 	score = score + 1
 	change_score()
 	if(score == 4):
-		global.reset()
-		global.main.change_score(global.main.get_score() + 1)
+		printer.reset()
+		printer.main.change_score(printer.main.get_score() + 1)
 
 func reset_score():
 	score = 0
 	change_score()
 
 func change_position():
-	markerLevel.global_position.y = paper.global_position.y
-	markerLevel.global_position.x = randf_range(paper.global_position.x, paper.global_position.x + 100)
+	printer.markerLevel.global_position.y = printer.paper.global_position.y
+	printer.markerLevel.global_position.x = randf_range(printer.paper.global_position.x, printer.paper.global_position.x + 100)
 
 func change_score():
 	match score:

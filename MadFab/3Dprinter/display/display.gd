@@ -6,7 +6,7 @@ const MENU_PRINT = 1
 const MENU_FILAMENT = 2
 const MENU_LEVELING = 3
 
-var selected = 0
+var selected = false
 var used = false
 var light = true
 
@@ -20,10 +20,10 @@ func reset():
 	menu = 0
 	$light.visible = true
 	$light.energy = 0.5
-	change_menu(0)
+	change_menu()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if not used:
 		if light:
 			$light.energy = $light.energy + 0.1
@@ -37,10 +37,10 @@ func _process(delta):
 			
 			
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	pass
 	
-func change_menu(menu):
+func change_menu():
 	match menu:
 		0:
 			$Leveling.visible = false
@@ -56,10 +56,11 @@ func change_menu(menu):
 			$Leveling.visible = true
 
 
-func _on_input_event(viewport, event, shape_idx):
+func _on_input_event(_viewport, event, _shape_idx):
 	var is_drag = event is InputEventScreenDrag or event is InputEventMouseMotion
 	if(!is_drag and event.is_pressed()):
 		selected = true
+
 	if(!is_drag and !event.is_pressed() and selected == true):
 		if not used:
 			used = true
@@ -67,8 +68,6 @@ func _on_input_event(viewport, event, shape_idx):
 		menu = menu + 1
 		if menu == 4:
 			menu = 0
-		change_menu(menu)
+		change_menu()
 		selected = false
 
-func _on_button_area_input_event(viewport, event, shape_idx):
-	print("Button Input")

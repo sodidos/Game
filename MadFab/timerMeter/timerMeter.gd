@@ -15,14 +15,13 @@ func reset():
 	progressTime.value = timeSeconds
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func move_bar():
 	if progressTime.value == 0:
 		return true
 	else:
-		print(progressTime.value)
 		progressTime.value = progressTime.value - 1
 		return false
 		
