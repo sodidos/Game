@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw2r1ksvipmky"]
+[gd_scene load_steps=6 format=3 uid="uid://dw2r1ksvipmky"]
 
 [ext_resource type="PackedScene" uid="uid://d3cisoc1yhfls" path="res://player/player.tscn" id="1_5j2ij"]
+[ext_resource type="PackedScene" uid="uid://wjeqxj6l7b3y" path="res://missile/missile.tscn" id="2_3xc4y"]
 [ext_resource type="Script" path="res://level_01/Camera3D.gd" id="2_4x3sb"]
 [ext_resource type="AudioStream" uid="uid://c1fiqul6dobq2" path="res://shoot.wav" id="2_uybpm"]
 [ext_resource type="Script" path="res://level_01/AudioStreamPlayer.gd" id="3_ie0oa"]
@@ -8,6 +9,7 @@
 [node name="level_01" type="Node3D"]
 
 [node name="player" parent="." instance=ExtResource("1_5j2ij")]
+missile = ExtResource("2_3xc4y")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("spaceship", "camera")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0)
