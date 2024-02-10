@@ -4,7 +4,7 @@ extends Camera3D
 @export var camera: Camera3D
 
 var smooth_speed = 2.0
-var offset = Vector3(0, 10, 0)
+var offset = Vector3(0, 10, 5)
 
 func _process(delta):
 	var target_position = spaceship.global_transform.origin + offset
