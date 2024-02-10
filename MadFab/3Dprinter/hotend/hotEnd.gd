@@ -5,8 +5,8 @@ extends Area2D
 @export var levelingMeter: Control
 @export var bed: Area2D
 
-@export var crash_speed = 5
-@export var move_speed = 25
+@export var crash_speed = 25
+@export var move_speed = 50
 
 # Save original position
 var initial_position

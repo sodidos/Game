@@ -31,8 +31,6 @@ attachedObject = NodePath("../Axis")
 display = NodePath("../display")
 levelingMeter = NodePath("../LevelingMeter")
 bed = NodePath("../bed")
-crash_speed = 20
-move_speed = 50
 
 [node name="PaperIcon" parent="." node_paths=PackedStringArray("paper", "markerLevel") instance=ExtResource("5_n4p0x")]
 position = Vector2(-128, 243)
@@ -41,7 +39,7 @@ markerLevel = NodePath("../MarkerLevel")
 
 [node name="paper" parent="." instance=ExtResource("6_0bun2")]
 visible = false
-position = Vector2(-96, 93)
+position = Vector2(7, 93)
 
 [node name="LevelingMeter" parent="." node_paths=PackedStringArray("paper", "markerLevel", "global") instance=ExtResource("7_0ivhs")]
 offset_left = -83.0

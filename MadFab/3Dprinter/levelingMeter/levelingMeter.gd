@@ -10,7 +10,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func add_score():
@@ -26,7 +26,7 @@ func reset_score():
 
 func change_position():
 	markerLevel.global_position.y = paper.global_position.y
-	markerLevel.global_position.x = randi_range(paper.global_position.x, paper.global_position.x + 100)
+	markerLevel.global_position.x = randf_range(paper.global_position.x, paper.global_position.x + 100)
 
 func change_score():
 	match score:
@@ -55,4 +55,4 @@ func change_score():
 			$ok2.color = Color(0,255,0)
 			$ok3.color = Color(0,255,0)
 			$ok4.color = Color(0,255,0)
-			
+
