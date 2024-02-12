@@ -22,4 +22,9 @@ func spawn_enemy():
 	var spawn_position = Vector3(randi_range(-10, 10), 0, -20) # Ajustez selon votre scène
 	enemy.global_transform.origin = player_position + spawn_position
 	# Ajouter l'ennemi à la scène
-	get_tree().root.add_child(enemy) # Ou une autre manière adaptée à la structure de votre scène
+	# get_tree().root.
+	add_child(enemy)
+
+func _on_boum():
+	print("boum")
+	$boom.play()

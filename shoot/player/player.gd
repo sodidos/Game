@@ -4,7 +4,7 @@ extends CharacterBody3D
 const SPEED = 10.0
 # Chemin vers la scène du missile
 @export var missile : PackedScene
-
+@export var boum_sound : AudioStreamPlayer
 # Offsets pour les canons
 var cannon_offset_left = Vector3(-0.8, 0, -0.1)  # Ajustez selon votre modèle
 var cannon_offset_right = Vector3(0.8, 0, -0.1)  # Ajustez selon votre modèle
@@ -37,5 +37,6 @@ func shoot():
 		var missile_instance = missile.instantiate()
 		# Positionnez le missile en fonction de l'offset du canon
 		missile_instance.global_transform = global_transform.translated(offset)
+		missile_instance.boum_sound = boum_sound
 		# Ajoutez le missile à la scène (assurez-vous d'avoir une référence à la scène principale ou utilisez get_tree().current_scene)
 		get_parent().add_child(missile_instance)

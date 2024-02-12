@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_hymsk"]
 size = Vector3(1.93744, 1, 2.01978)
 
-[node name="player" type="CharacterBody3D"]
+[node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_d3qvj")
 
 [node name="spaceship" parent="." instance=ExtResource("1_j5grl")]

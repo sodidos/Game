@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b632etn3h6cdr" path="res://Scenes/radio/mp3/MusicGameFabLab.mp3" id="8_x5d5x"]
 [ext_resource type="PackedScene" uid="uid://t2rlr0ddfpas" path="res://Scenes/ordi/ordi.tscn" id="9_rf3i6"]
 
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_d2yc8"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])

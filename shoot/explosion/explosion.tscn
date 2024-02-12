@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://p7jtkg6cewsd"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vst7q"]
+radial_velocity_max = 18.43
+gravity = Vector3(0, 0, 0)
+radial_accel_max = 8.29
+
+[sub_resource type="Gradient" id="Gradient_jejwy"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_my0hi"]
+gradient = SubResource("Gradient_jejwy")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_nqd0y"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_odk45"]
+gradient = SubResource("Gradient_nqd0y")
+fill_to = Vector2(1, 0.995726)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ulika"]
+albedo_color = Color(0.682353, 0.360784, 0, 1)
+albedo_texture = SubResource("GradientTexture2D_my0hi")
+emission_enabled = true
+emission = Color(1, 0.792157, 0, 1)
+emission_energy_multiplier = 16.0
+emission_texture = SubResource("GradientTexture2D_odk45")
+
+[sub_resource type="SphereMesh" id="SphereMesh_1qmsg"]
+material = SubResource("StandardMaterial3D_ulika")
+radius = 0.1
+height = 0.1
+radial_segments = 4
+rings = 1
+
+[node name="explosion" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 64
+lifetime = 0.34
+interp_to_end = 0.22
+one_shot = true
+explosiveness = 0.57
+randomness = 0.27
+process_material = SubResource("ParticleProcessMaterial_vst7q")
+draw_pass_1 = SubResource("SphereMesh_1qmsg")
