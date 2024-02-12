@@ -24,7 +24,3 @@ func spawn_enemy():
 	# Ajouter l'ennemi à la scène
 	# get_tree().root.
 	add_child(enemy)
-
-func _on_boum():
-	print("boum")
-	$boom.play()
