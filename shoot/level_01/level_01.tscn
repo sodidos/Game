@@ -35,4 +35,8 @@ script = ExtResource("3_ie0oa")
 [node name="boom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_mfvly")
 
+[node name="spawn" type="Timer" parent="."]
+autostart = true
+
 [connection signal="finished" from="music" to="music" method="_on_finished"]
+[connection signal="timeout" from="spawn" to="." method="_on_spawn_timeout"]

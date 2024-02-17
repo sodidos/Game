@@ -3,16 +3,6 @@ extends Node3D
 # Chemin vers la scène de l'ennemi
 @export var enemy_scene : PackedScene
 
-# Paramètres de génération
-var spawn_rate = 1.0 # Ennemis par seconde
-var spawn_timer = 0.0
-
-func _process(delta):
-	spawn_timer += delta
-	if spawn_timer >= 1.0 / spawn_rate:
-		spawn_enemy()
-		spawn_timer = 0
-
 func spawn_enemy():
 	var enemy = enemy_scene.instantiate()
 	var player = $player  # Obtenez une référence au nœud du joueur
@@ -24,3 +14,7 @@ func spawn_enemy():
 	# Ajouter l'ennemi à la scène
 	# get_tree().root.
 	add_child(enemy)
+
+
+func _on_spawn_timeout():
+	spawn_enemy()

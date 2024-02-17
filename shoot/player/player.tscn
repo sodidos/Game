@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://gumi73pchsx2" path="res://player/spaceship.blend" id="1_j5grl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hymsk"]
-size = Vector3(1.93744, 1, 2.01978)
+size = Vector3(2.0411, 1.11206, 2.15741)
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_d3qvj")
@@ -12,5 +12,5 @@ script = ExtResource("1_d3qvj")
 [node name="spaceship" parent="." instance=ExtResource("1_j5grl")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00302124, 0.50378, 0.470093)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000392641, 0.489254, 0.468232)
 shape = SubResource("BoxShape3D_hymsk")
