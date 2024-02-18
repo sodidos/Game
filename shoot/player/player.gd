@@ -2,17 +2,18 @@ extends CharacterBody3D
 
 
 const SPEED = 10.0
-# Chemin vers la scène du missile
+
+# Chargement de la scéne missile et du noeud boum
 @export var missile : PackedScene
 @export var boum_sound : AudioStreamPlayer
-# Offsets pour les canons
-var cannon_offset_left = Vector3(-0.8, 0, -0.1)  # Ajustez selon votre modèle
-var cannon_offset_right = Vector3(0.8, 0, -0.1)  # Ajustez selon votre modèle
 
+# Offsets pour les canons
+var cannon_offset_left = Vector3(-0.8, 0, -0.1)
+var cannon_offset_right = Vector3(0.8, 0, -0.1)
 
 func _physics_process(_delta):
 
-	# Get the input direction and handle the movement/deceleration.
+	#-----movement------
 
 	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -25,7 +26,7 @@ func _physics_process(_delta):
 
 	move_and_slide()
 
-	# gestion du tir
+	# ----gestion du tir------
 
 	# get the shoot input
 	if Input.is_action_just_pressed("shoot"):
