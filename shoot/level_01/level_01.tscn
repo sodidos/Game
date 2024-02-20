@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dw2r1ksvipmky"]
+[gd_scene load_steps=9 format=3 uid="uid://dw2r1ksvipmky"]
 
 [ext_resource type="PackedScene" uid="uid://d3cisoc1yhfls" path="res://player/player.tscn" id="1_5j2ij"]
 [ext_resource type="Script" path="res://level_01/level_01.gd" id="1_lqig5"]
-[ext_resource type="PackedScene" uid="uid://wjeqxj6l7b3y" path="res://missile/missile.tscn" id="2_3xc4y"]
 [ext_resource type="Script" path="res://level_01/Camera3D.gd" id="2_4x3sb"]
 [ext_resource type="PackedScene" uid="uid://dtmr8shg7wfas" path="res://enemy/bad_01.tscn" id="2_r6kcp"]
 [ext_resource type="AudioStream" uid="uid://c1fiqul6dobq2" path="res://shoot.wav" id="2_uybpm"]
@@ -10,13 +9,13 @@
 [ext_resource type="AudioStream" uid="uid://eql1x20pb56" path="res://explosion/explosion.mp3" id="8_mfvly"]
 [ext_resource type="PackedScene" uid="uid://yjp56vl3xysi" path="res://Hud/hud.tscn" id="9_uwtj4"]
 
-[node name="level_01" type="Node3D" node_paths=PackedStringArray("boum_sound")]
+[node name="level_01" type="Node3D" node_paths=PackedStringArray("boum_sound", "Hud")]
 script = ExtResource("1_lqig5")
 enemy_scene = ExtResource("2_r6kcp")
 boum_sound = NodePath("boom")
+Hud = NodePath("Hud")
 
 [node name="player" parent="." node_paths=PackedStringArray("boum_sound") instance=ExtResource("1_5j2ij")]
-missile = ExtResource("2_3xc4y")
 boum_sound = NodePath("../boom")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("spaceship", "camera")]

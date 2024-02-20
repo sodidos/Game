@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://yjp56vl3xysi"]
+[gd_scene load_steps=2 format=3 uid="uid://yjp56vl3xysi"]
+
+[ext_resource type="Script" path="res://Hud/hud.gd" id="1_nml2j"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -7,11 +9,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nml2j")
 
-[node name="Label" type="Label" parent="."]
+[node name="VieLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 40.0
 offset_right = 80.0
 offset_bottom = 63.0
-text = "Vie :"
+text = "Vie : 100"
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 72.0
+offset_right = 106.0
+offset_bottom = 95.0
+text = "Score : 0"
