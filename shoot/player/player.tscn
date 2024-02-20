@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3cisoc1yhfls"]
+[gd_scene load_steps=5 format=3 uid="uid://d3cisoc1yhfls"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_d3qvj"]
 [ext_resource type="PackedScene" uid="uid://gumi73pchsx2" path="res://player/spaceship.blend" id="1_j5grl"]
+[ext_resource type="PackedScene" uid="uid://wjeqxj6l7b3y" path="res://missile/missile.tscn" id="2_eqooe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hymsk"]
 size = Vector3(2.0411, 1.11206, 2.15741)
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_d3qvj")
+missile = ExtResource("2_eqooe")
+boum_sound = NodePath("boom")
 
 [node name="spaceship" parent="." instance=ExtResource("1_j5grl")]
 
