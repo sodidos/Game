@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dw2r1ksvipmky"]
+[gd_scene load_steps=17 format=3 uid="uid://dw2r1ksvipmky"]
 
 [ext_resource type="PackedScene" uid="uid://d3cisoc1yhfls" path="res://player/player.tscn" id="1_5j2ij"]
 [ext_resource type="Script" path="res://level_01/level_01.gd" id="1_lqig5"]
@@ -8,6 +8,37 @@
 [ext_resource type="Script" path="res://level_01/AudioStreamPlayer.gd" id="3_ie0oa"]
 [ext_resource type="AudioStream" uid="uid://eql1x20pb56" path="res://explosion/explosion.mp3" id="8_mfvly"]
 [ext_resource type="PackedScene" uid="uid://yjp56vl3xysi" path="res://Hud/hud.tscn" id="9_uwtj4"]
+
+[sub_resource type="Gradient" id="Gradient_4e6w0"]
+offsets = PackedFloat32Array(0, 0.253521, 0.901408, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0230422, 0, 0.528832, 1, 0.676104, 0.00159833, 0.837931, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7pytl"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ey12t"]
+width = 1024
+height = 1024
+in_3d_space = true
+seamless = true
+color_ramp = SubResource("Gradient_4e6w0")
+noise = SubResource("FastNoiseLite_7pytl")
+
+[sub_resource type="SphereMesh" id="SphereMesh_btbmg"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_3ag4d"]
+mesh = SubResource("SphereMesh_btbmg")
+base_texture = SubResource("NoiseTexture2D_ey12t")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0pbnl"]
+panorama = SubResource("MeshTexture_3ag4d")
+
+[sub_resource type="Sky" id="Sky_5h4os"]
+sky_material = SubResource("PanoramaSkyMaterial_0pbnl")
+
+[sub_resource type="Environment" id="Environment_e2g75"]
+background_mode = 2
+sky = SubResource("Sky_5h4os")
 
 [node name="level_01" type="Node3D" node_paths=PackedStringArray("boum_sound", "Hud")]
 script = ExtResource("1_lqig5")
@@ -20,6 +51,7 @@ boum_sound = NodePath("../boom")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("spaceship", "camera")]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 5)
+environment = SubResource("Environment_e2g75")
 script = ExtResource("2_4x3sb")
 spaceship = NodePath("../player")
 camera = NodePath(".")
