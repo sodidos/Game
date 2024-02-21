@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://fgcisflatn0h"]
+
+[ext_resource type="FontFile" uid="uid://p045bgvg2ath" path="res://font/LCD-U___.TTF" id="1_yvhah"]
+
+[resource]
+font = ExtResource("1_yvhah")
+font_size = 32
+font_color = Color(0.74902, 0.639216, 0, 1)
+outline_color = Color(0.470588, 0, 1, 1)
+shadow_color = Color(0.729412, 0.282353, 0.0352941, 1)
