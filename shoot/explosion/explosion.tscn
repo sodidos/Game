@@ -39,7 +39,7 @@ rings = 1
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 64
-lifetime = 0.34
+lifetime = 0.1
 interp_to_end = 0.22
 one_shot = true
 explosiveness = 0.57

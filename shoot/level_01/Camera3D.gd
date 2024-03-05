@@ -4,7 +4,7 @@ extends Camera3D
 @export var camera: Camera3D
 
 var smooth_speed = 2.0
-var offset = Vector3(0, 10, 5)
+var offset = Vector3(0, 15, 1.5)
 
 func _process(delta):
 	

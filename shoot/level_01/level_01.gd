@@ -13,7 +13,7 @@ func spawn_enemy():
 	# récupérer la position du joueur
 	var player_position = player.global_transform.origin
 	# Définir la position initiale de l'ennemi en face du joueur
-	var spawn_position = Vector3(randi_range(-10, 10), 0, -20)
+	var spawn_position = Vector3(randi_range(-15, 15), 0, -30)
 	# Ajouter l'ennemi à la scène
 	enemy.boum_sound = boum_sound
 	enemy.Hud = Hud
