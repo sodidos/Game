@@ -10,7 +10,6 @@ size = Vector3(2.0411, 1.11206, 2.15741)
 [node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_d3qvj")
 missile = ExtResource("2_eqooe")
-boum_sound = NodePath("boom")
 
 [node name="spaceship" parent="." instance=ExtResource("1_j5grl")]
 
